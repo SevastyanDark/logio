@@ -16,7 +16,3 @@ class Logger(val name: String, val dateFormat: String = "yyyy-MM-dd HH:mm:ss.SSS
         println(tmpFormat)
     }
 }
-fun main(args: Array<String>)
-{
-    LoggerFactory.getLog("main").log(true)
-}
