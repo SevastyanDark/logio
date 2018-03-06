@@ -2,14 +2,14 @@
 Simple and lightweight logger for Java/Kotlin/Scala ...
 ## Getting started
 To link logio to your project, use:
-```
+```groovy
 dependencies
 {
-compile 'com.github.sevastyandark:logio:0.1.0'
+  compile 'com.github.sevastyandark:logio:0.1.0'
 }
 ```
 or, using Maven:
-```
+```xml
 <dependency>
   <groupId>com.github.sevastyandark</groupId>
   <artifactId>logio</artifactId>
