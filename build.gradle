@@ -3,19 +3,26 @@ buildscript {
 
     repositories {
         mavenCentral()
+		jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.novoda:bintray-release:0.3.4'
     }
 }
 
 group 'com.github.sevastyandark'
-version '0.1.0'
+version '0.2.0'
+
 
 apply plugin: 'kotlin'
+apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 repositories {
     mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -27,4 +34,82 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+
+      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+        authentication(userName: ossrhUsername, password: ossrhPassword)
+      }
+
+      pom.project {
+        name 'Logio'
+        packaging 'jar'
+        
+        url 'https://github.com/SevastyanDark/logio'
+       
+
+        description 'Simple and lightweight logger for Java/Kotlin/Scala ...'
+       
+
+        scm {
+          connection 'scm:svn:https://github.com/SevastyanDark/logio.git'
+          developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
+          url 'http://foo.googlecode.com/svn/trunk/'
+        }
+
+       
+
+        licenses {
+          license {
+            name 'The Apache License, Version 2.0'
+            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+          }
+        }
+
+        developers {
+          developer {
+            id 'sevastyandark'
+            name 'Sevastyan Pigarev'
+            email 'pigarev.sevastyan@gmail.com'
+          }
+        }
+      }
+    }
+  }
+}
+signing {
+    sign configurations.archives
+}
+publish {
+    groupId = 'com.github.sevastyandark'
+    artifactId = 'logio'
+    publishVersion = '0.1.0'
+    desc = 'A small library containing a wrapper for the SharedPreferences of Android'
+    licences = ['Apache2.0']
+    website = 'https://github.com/SevastyanDark/logio'
 }
