@@ -1,4 +1,4 @@
-# logio [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.sevastyandark/logio/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.sevastyandark/logio)
+# logio ![Maven Central](https://img.shields.io/maven-central/v/com.github.sevastyandark/logio.svg)
 Simple and lightweight logger for Java/Kotlin/Scala ...
 ## Getting started
 To link logio to your project, use:
