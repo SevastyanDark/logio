@@ -109,7 +109,7 @@ publish {
     groupId = 'com.github.sevastyandark'
     artifactId = 'logio'
     publishVersion = '0.1.0'
-    desc = 'A small library containing a wrapper for the SharedPreferences of Android'
+    desc = 'A small library for logging'
     licences = ['Apache2.0']
     website = 'https://github.com/SevastyanDark/logio'
 }
