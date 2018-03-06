@@ -16,6 +16,10 @@ or, using Maven:
       <version>0.2.0</version>
     </dependency>
 ```
+If you want to compile the source, run
+```cmd
+gradlew build
+```
 ## Examples
 
 ```kotlin
@@ -30,3 +34,5 @@ fun main(args: Array<String>)
     log.error("Something wrong")
 }
 ```
+## Contributions
+Contributions are always welcome. Please read (Contributing)[https://github.com/SevastyanDark/logio/blob/master/CONTRIBUTING.md] to get more details.
