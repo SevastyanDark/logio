@@ -35,4 +35,4 @@ fun main(args: Array<String>)
 }
 ```
 ## Contributions
-Contributions are always welcome. Please read (Contributing)[https://github.com/SevastyanDark/logio/blob/master/CONTRIBUTING.md] to get more details.
+Contributions are always welcome. Please read [Contributing](https://github.com/SevastyanDark/logio/blob/master/CONTRIBUTING.md) to get more details.
