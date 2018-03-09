@@ -22,59 +22,35 @@ import java.time.format.DateTimeFormatter
 
 class Logger(val name: String, val dateFormat: String, val printFormat: String)
 {
-    fun info(x: Any)
+    private fun log(logLevel: String, message: String)
     {
         val nowTime = LocalDateTime.now()
         val formatted = nowTime.format(DateTimeFormatter.ofPattern(dateFormat))
         var tmpFormat = printFormat
         tmpFormat = tmpFormat.replace("%date%", formatted)
         tmpFormat = tmpFormat.replace("%name%", name)
-        tmpFormat = tmpFormat.replace("%text%", x.toString())
-        tmpFormat = tmpFormat.replace("%log_level%", "INFO")
+        tmpFormat = tmpFormat.replace("%text%", message)
+        tmpFormat = tmpFormat.replace("%log_level%", logLevel)
         println(tmpFormat)
+    }
+    fun info(x: Any)
+    {
+        log("INFO", x.toString())
     }
     fun warn(x: Any)
     {
-        val nowTime = LocalDateTime.now()
-        val formatted = nowTime.format(DateTimeFormatter.ofPattern(dateFormat))
-        var tmpFormat = printFormat
-        tmpFormat = tmpFormat.replace("%date%", formatted)
-        tmpFormat = tmpFormat.replace("%name%", name)
-        tmpFormat = tmpFormat.replace("%text%", x.toString())
-        tmpFormat = tmpFormat.replace("%log_level%", "WARN")
-        println(tmpFormat)
+        log("WARN", x.toString())
     }
     fun error(x: Any)
     {
-        val nowTime = LocalDateTime.now()
-        val formatted = nowTime.format(DateTimeFormatter.ofPattern(dateFormat))
-        var tmpFormat = printFormat
-        tmpFormat = tmpFormat.replace("%date%", formatted)
-        tmpFormat = tmpFormat.replace("%name%", name)
-        tmpFormat = tmpFormat.replace("%text%", x.toString())
-        tmpFormat = tmpFormat.replace("%log_level%", "ERROR")
-        println(tmpFormat)
+        log("ERROR", x.toString())
     }
     fun critical(x: Any)
     {
-        val nowTime = LocalDateTime.now()
-        val formatted = nowTime.format(DateTimeFormatter.ofPattern(dateFormat))
-        var tmpFormat = printFormat
-        tmpFormat = tmpFormat.replace("%date%", formatted)
-        tmpFormat = tmpFormat.replace("%name%", name)
-        tmpFormat = tmpFormat.replace("%text%", x.toString())
-        tmpFormat = tmpFormat.replace("%log_level%", "CRITICAL")
-        println(tmpFormat)
+        log("CRITICAL", x.toString())
     }
     fun debug(x: Any)
     {
-        val nowTime = LocalDateTime.now()
-        val formatted = nowTime.format(DateTimeFormatter.ofPattern(dateFormat))
-        var tmpFormat = printFormat
-        tmpFormat = tmpFormat.replace("%date%", formatted)
-        tmpFormat = tmpFormat.replace("%name%", name)
-        tmpFormat = tmpFormat.replace("%text%", x.toString())
-        tmpFormat = tmpFormat.replace("%log_level%", "DEBUG")
-        println(tmpFormat)
+        log("DEBUG", x.toString())
     }
 }
