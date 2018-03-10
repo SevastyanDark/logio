@@ -1,4 +1,4 @@
-# logio ![Maven Central](https://img.shields.io/maven-central/v/com.github.sevastyandark/logio.svg)
+# logio ![Maven Central](https://img.shields.io/maven-central/v/com.github.sevastyandark/logio.svg)   [![Build Status](https://travis-ci.org/SevastyanDark/logio.svg?branch=master)](https://travis-ci.org/SevastyanDark/logio)
 Simple and lightweight logger for Java/Kotlin/Scala ...
 ## Getting started
 To link logio to your project, use:
