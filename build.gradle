@@ -53,58 +53,6 @@ artifacts {
     archives sourcesJar
 }
 
-uploadArchives {
-  repositories {
-    mavenDeployer {
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      pom.project {
-        name 'Logio'
-        packaging 'jar'
-        
-        url 'https://github.com/SevastyanDark/logio'
-       
-
-        description 'Simple and lightweight logger for Java/Kotlin/Scala ...'
-       
-
-        scm {
-          connection 'scm:svn:https://github.com/SevastyanDark/logio.git'
-          developerConnection 'scm:svn:https://foo.googlecode.com/svn/trunk/'
-          url 'http://foo.googlecode.com/svn/trunk/'
-        }
-
-       
-
-        licenses {
-          license {
-            name 'The Apache License, Version 2.0'
-            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          }
-        }
-
-        developers {
-          developer {
-            id 'sevastyandark'
-            name 'Sevastyan Pigarev'
-            email 'pigarev.sevastyan@gmail.com'
-          }
-        }
-      }
-    }
-  }
-}
-signing {
-    sign configurations.archives
-}
 publish {
     groupId = 'com.github.sevastyandark'
     artifactId = 'logio'
