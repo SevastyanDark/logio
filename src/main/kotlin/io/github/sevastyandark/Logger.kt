@@ -15,7 +15,7 @@
  *
  */
 
-package com.github.sevastyandark.logio
+package io.github.sevastyandark.logio
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
