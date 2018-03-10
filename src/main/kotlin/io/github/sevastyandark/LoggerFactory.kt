@@ -14,7 +14,7 @@
  *    limitations under the License.
  *
  */
-package com.github.sevastyandark.logio
+package io.github.sevastyandark.logio
 
 object LoggerFactory
 {
