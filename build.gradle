@@ -11,7 +11,7 @@ buildscript {
     }
 }
 
-group 'com.github.sevastyandark'
+group 'io.github.sevastyandark'
 version '0.2.0'
 
 
@@ -54,7 +54,7 @@ artifacts {
 }
 
 publish {
-    groupId = 'com.github.sevastyandark'
+    groupId = 'io.github.sevastyandark'
     artifactId = 'logio'
     publishVersion = '0.1.0'
     desc = 'A small library for logging'
